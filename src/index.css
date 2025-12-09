@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #00F5FF;
+  --color-secondary: #9B4DFF;
+  --color-accent: #14FFC4;
+  --color-bg: #1a0f3f;
+  /* Deep Indigo Base */
+
+  --font-heading: Sora, sans-serif;
+  --font-body: "IBM Plex Sans", sans-serif;
+  --font-mono: "Share Tech Mono", monospace;
+
+  /* Animation Constants */
+  --dur-fast: 220ms;
+  --dur-medium: 480ms;
+  --dur-slow: 900ms;
+  --easing-smooth: cubic-bezier(.16, .84, .44, 1);
+}
+
+@layer base {
+  body {
+    @apply bg-[#050510] text-white font-body overflow-x-hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .text-neon-blue {
+    text-shadow: 0 0 10px #00F5FF, 0 0 20px #00F5FF;
+  }
+
+  .text-neon-purple {
+    text-shadow: 0 0 10px #9B4DFF, 0 0 20px #9B4DFF;
+  }
+
+  .bg-glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  /* Plus Pattern Background */
+  .bg-grid-plus {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+  }
+
+  /* Custom Plus Icon Pattern (More accurate to user request) */
+  .bg-plus-pattern {
+    background-image: radial-gradient(circle, white 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.03;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050510;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00F5FF;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #14FFC4;
+}
+
+/* Glitch Effect */
+.glitch-text {
+  position: relative;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text::before {
+  left: 2px;
+  text-shadow: -1px 0 #00F5FF;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+  left: -2px;
+  text-shadow: -1px 0 #9B4DFF;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(35px, 9999px, 36px, 0);
+  }
+
+  20% {
+    clip: rect(23px, 9999px, 76px, 0);
+  }
+
+  40% {
+    clip: rect(12px, 9999px, 11px, 0);
+  }
+
+  60% {
+    clip: rect(45px, 9999px, 12px, 0);
+  }
+
+  80% {
+    clip: rect(89px, 9999px, 12px, 0);
+  }
+
+  100% {
+    clip: rect(12px, 9999px, 45px, 0);
+  }
+}
+
+@keyframes glitch-anim2 {
+  0% {
+    clip: rect(12px, 9999px, 56px, 0);
+  }
+
+  20% {
+    clip: rect(67px, 9999px, 12px, 0);
+  }
+
+  40% {
+    clip: rect(12px, 9999px, 56px, 0);
+  }
+
+  60% {
+    clip: rect(45px, 9999px, 12px, 0);
+  }
+
+  80% {
+    clip: rect(12px, 9999px, 67px, 0);
+  }
+
+  100% {
+    clip: rect(67px, 9999px, 12px, 0);
+  }
+}
+
+/* Typing Effect */
+.typing-container {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: .15em solid orange;
+  animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+
+  to {
+    width: 100%
+  }
+}
+
+@keyframes blink-caret {
+
+  from,
+  to {
+    border-color: transparent
+  }
+
+  50% {
+    border-color: orange;
+  }
+}
