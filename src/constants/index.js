@@ -23,6 +23,16 @@ export const PERSONAL_DETAILS = {
 
 export const PROJECTS = [
     {
+        title: "Portfolio Website",
+        description: "A modern, responsive personal portfolio website built with React, Tailwind CSS, and Framer Motion. Features a futuristic design, smooth animations, and a fully responsive layout.",
+        tech: ["React", "Tailwind CSS", "Framer Motion", "Vite"],
+        image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop",
+        links: {
+            code: "https://github.com/suresh8088-dev/https-github.com-suresh8088-dev-my-website",
+            demo: "https://suresh8088-dev.github.io/https-github.com-suresh8088-dev-my-website/"
+        }
+    },
+    {
         title: "Air Quality Prediction",
         description: "A machine learning powered application to predict and visualize air quality levels in real-time. Built with Python and Flask, featuring interactive dashboards.",
         tech: ["Python", "Flask", "ML Models", "Plotly"],
